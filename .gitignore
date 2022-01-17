@@ -10,6 +10,7 @@ tmp/
 app/**/*.js
 app/**/*.js.map
 dotnetapp/
+package-lock.json
 
 # dependencies
 node_modules/
