@@ -4,6 +4,7 @@
 ### Angular ###
 ## Angular ##
 # compiled output
+puppeteer/
 dist/
 tmp/
 app/**/*.js
