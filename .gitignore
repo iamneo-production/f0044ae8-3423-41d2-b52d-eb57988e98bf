@@ -12,6 +12,7 @@ app/**/*.js
 app/**/*.js.map
 package-lock.json
 angularapp/
+launchSettings.json
 # dependencies
 node_modules/
 bower_components/
