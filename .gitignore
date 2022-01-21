@@ -9,6 +9,7 @@ tmp/
 app/**/*.js
 app/**/*.js.map
 package-lock.json
+
 # dependencies
 node_modules/
 bower_components/
