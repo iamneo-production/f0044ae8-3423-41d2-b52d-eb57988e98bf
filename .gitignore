@@ -4,14 +4,11 @@
 ### Angular ###
 ## Angular ##
 # compiled output
-puppeteer/
 dist/
 tmp/
 app/**/*.js
 app/**/*.js.map
-dotnetapp/
 package-lock.json
-nunit/
 # dependencies
 node_modules/
 bower_components/
