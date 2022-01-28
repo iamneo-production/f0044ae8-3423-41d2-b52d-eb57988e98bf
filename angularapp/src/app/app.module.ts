@@ -18,6 +18,7 @@ import { ViewPrepaidComponent } from './admin/prepaid/view-prepaid/view-prepaid.
 import { ViewPostpaidComponent } from './admin/postpaid/view-postpaid/view-postpaid.component';
 import { EditPostpaidComponent } from './admin/postpaid/edit-postpaid/edit-postpaid.component';
 import { AddPostpaidComponent } from './admin/postpaid/add-postpaid/add-postpaid.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { AddPostpaidComponent } from './admin/postpaid/add-postpaid/add-postpaid
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
