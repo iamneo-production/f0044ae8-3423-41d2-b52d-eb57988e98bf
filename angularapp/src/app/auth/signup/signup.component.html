@@ -1,1 +1,110 @@
-<p>signup works!</p>
+<div class="container" style="max-width: 1000px;">
+      <div class="row">
+            <div class="col-lg-6 text-center">
+                  <img src="assets/Signup.jpg" alt="" width="500px" height="500px">
+            </div>
+            <div class="col-lg-6" style="max-width:400px ;margin: auto">
+                  <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()" class="align-items-center center">
+
+                        <!-- User Email -->
+                        <div class="form-group" style="margin: 10px 0px">
+                              <div class="input-group  input-group-sm">
+                                    <div class="input-group-prepend">
+                                          <div class="input-group-text  btn-secondary">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                    </div>&nbsp;
+                                    <input type="email" id="email" class="form-control" formControlName="email"
+                                          placeholder="Enter email">
+                              </div>
+                              <!-- Display Invalid Message -->
+                              <span class="text-danger alert"
+                                    *ngIf="!SignupForm.get('email')?.valid && SignupForm.get('email')?.touched">Invalid
+                                    Email
+                                    Address !!!</span>
+                        </div>
+
+                        <!-- UserName -->
+                        <div class="form-group" style="margin: 10px 0px">
+                              <div class="input-group  input-group-sm">
+                                    <div class="input-group-prepend">
+                                          <div class="input-group-text  btn-secondary">
+                                                UserName</div>
+                                    </div>&nbsp;
+                                    <input type="text" id="username" class="form-control" formControlName="username"
+                                          placeholder="Enter userName">
+                              </div>
+                              <!-- Display Invalid Message -->
+                              <span class="text-danger alert"
+                                    *ngIf="!SignupForm.get('username')?.valid && SignupForm.get('username')?.touched;">Invalid
+                                    userName
+                                    !!!</span>
+                        </div>
+
+
+                        <!-- Mobilenumber -->
+                        <div class="form-group" style="margin: 10px 0px">
+                              <div class="input-group  input-group-sm">
+                                    <div class="input-group-prepend">
+                                          <div class="input-group-text  btn-secondary">
+                                                &nbsp;&nbsp;&nbsp;Mobile&nbsp;&nbsp;&nbsp;</div>
+                                    </div>&nbsp;
+                                    <input type="text" id="mobileNumber" class="form-control"
+                                          formControlName="mobileNumber" placeholder="Enter Mobilenumber">
+                              </div>
+                              <!-- Display Invalid Message -->
+                              <span class="text-danger alert"
+                                    *ngIf="!SignupForm.get('mobileNumber')?.valid && SignupForm.get('mobileNumber')?.touched;">Invalid
+                                    Mobilenumber!!!</span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group" style="margin: 10px 0px">
+                              <div class="input-group  input-group-sm">
+                                    <div class="input-group-prepend">
+                                          <div class="input-group-text  btn-secondary">
+                                                &nbsp;Password&nbsp;</div>
+                                    </div>&nbsp;
+                                    <input type="password" id="password" class="form-control" (change)="PassCheck()"
+                                          formControlName="password" placeholder="password">
+                              </div>
+                              <!-- Display Invalid Message -->
+                              <span class="text-danger alert"
+                                    *ngIf="!InvalidPass && SignupForm.get('password')?.touched">Passwords Don't
+                                    Match !!! </span>
+                              <span class="text-danger alert"
+                                    *ngIf="SignupForm.get('password')?.valid && SignupForm.get('passsword')?.touched">Passwords
+                                    < 8 Characters !!!</span>
+                        </div>
+
+
+                        <!-- Confirm Password -->
+
+                        <div class="form-group" style="margin: 10px 0px">
+                              <div class="input-group  input-group-sm">
+                                    <div class="input-group-prepend">
+                                          <div class="input-group-text  btn-secondary">
+                                                Confirm Password</div>
+                                    </div>&nbsp;
+                                    <input type="password" id="confirmPassword" class="form-control"
+                                          formControlName="confirmPass" (change)="PassCheck()"
+                                          placeholder="Confirm password">
+                              </div>
+                        </div>
+
+                        <!-- Login & Signup Button -->
+                        <div class=" form-group">
+                              <button class="btn btn-success" id="submitButton" [disabled]="!(SignupForm.get('email')?.valid && 
+                                                SignupForm.get('username')?.valid &&
+                                                SignupForm.get('mobileNumber')?.valid &&
+                                                SignupForm.get('password')?.valid && 
+                                                SignupForm.get('confirmPass')?.valid && InvalidPass)">Signup</button>
+                              &nbsp;&nbsp;
+
+                              <!-- Navigate to Login page -->
+                              <a class="btn btn-success" id="signinLink" routerLink="/auth/login">Login</a>
+                        </div>
+
+                  </form>
+            </div>
+      </div>
+</div>
