@@ -22,7 +22,7 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var Airnet_Con= "Data Source=VINOTH\\SQLEXPRESS;Initial Catalog=Airnet;Integrated Security=True";
+            var Airnet_Con= "Server=0.0.0.0;Data Source=.;User id=sa;Password=examlyMssql@123;Initial Catalog=Airnet;";
             services.AddDbContext<AirnetContext>(o => o.UseSqlServer(Airnet_Con));
 
             
