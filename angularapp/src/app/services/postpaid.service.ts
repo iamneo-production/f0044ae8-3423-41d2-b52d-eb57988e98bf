@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { PlanModel } from '../../shared/PlanModel';
+import { PlanModel } from '../shared/PlanModel';
 
 @Injectable({
     providedIn: 'root'

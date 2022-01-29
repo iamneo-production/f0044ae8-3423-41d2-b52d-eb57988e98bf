@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostpaidService } from 'src/app/services/postpaid.service';
 import { PlanModel } from '../../../shared/PlanModel';
-import { PostpaidService } from '../postpaid.service';
 
 @Component({
     selector: 'app-view-postpaid',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostpaidService } from 'src/app/services/postpaid.service';
 import { PlanModel } from '../../../shared/PlanModel';
-import { PostpaidService } from '../postpaid.service';
 
 @Component({
     selector: 'app-add-postpaid',
