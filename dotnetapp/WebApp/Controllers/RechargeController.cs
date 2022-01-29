@@ -1,4 +1,4 @@
-using Airnet_Backend.Model;
+using WebApp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Airnet_Backend.Controllers
+namespace WebApp.Controllers
 {
     [Route("{user}/")]
     [ApiController]

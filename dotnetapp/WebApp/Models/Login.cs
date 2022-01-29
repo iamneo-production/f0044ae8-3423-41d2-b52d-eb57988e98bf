@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Airnet_Backend.Model
+namespace WebApp.Model
 {
     public partial class Login
     {

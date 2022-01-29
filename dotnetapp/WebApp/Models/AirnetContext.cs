@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Airnet_Backend.Model
+namespace WebApp.Model
 {
     public partial class AirnetContext : DbContext
     {

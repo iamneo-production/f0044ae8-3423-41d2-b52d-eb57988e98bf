@@ -1,4 +1,4 @@
-using Airnet_Backend.Model;
+using WebApp.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
 
-namespace Airnet_Backend
+namespace WebApp
 {
     public class Startup
     {
