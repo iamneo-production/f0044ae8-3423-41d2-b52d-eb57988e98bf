@@ -28,7 +28,7 @@ namespace WebApp.Model
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=VINOTH\\SQLEXPRESS;Database=Airnet;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=0.0.0.0;Data Source=.;User id=sa;Password=examlyMssql@123;Initial Catalog=Airnet;");
             }
         }
 
