@@ -1,74 +1,85 @@
-﻿using Microsoft.AspNetCore.Http;
+using Airnet_Backend.Model;
 using Microsoft.AspNetCore.Mvc;
-using S2PlansManagement.Data;
 using Microsoft.EntityFrameworkCore;
-using S2PlansManagement.Models;
+using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace S2PlansManagement.Controllers
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace Airnet_Backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("{user}/")]
     [ApiController]
     public class RechargeController : ControllerBase
     {
-        private readonly RechargeDbContext _context;
-        public RechargeController(RechargeDbContext context)
+        private readonly AirnetContext _context;
+   
+        public RechargeController(AirnetContext context)
         {
             _context = context;
-        }
-        [HttpGet("getRecharge")]
-        public IActionResult viewAllRecharge()
-        {
-            var rechargeDetails = _context.RechargesModels.AsQueryable();
-            return Ok(new { StatusCode = 200, rechargeDetails = rechargeDetails });
-        }
-        [HttpGet("getRecharge/{id}")]
 
-        public IActionResult viewRecharge(int rechargeId)
-        {
-            var recharge = _context.RechargesModels.Find(rechargeId);
-            if (recharge == null)
-            {
-                return NotFound(new
-                {
-                    StatusCode = 404,
-                    Message = "Recharge not available",
-                });
-            }
-            else
-            {
-                return Ok(new { StatusCode = 200, rechargeDetails = recharge });
-            }
         }
-        [HttpPost("addRecharge")]
-        public IActionResult addRecharge([FromBody] RechargeModel rechargeModel)
+
+        // GET: api/<PlanController>
+        [HttpGet("getRecharge")]
+        public IEnumerable<Recharge> Get()
         {
-            if (rechargeModel == null)
+            string user = (string)RouteData.Values["user"];
+            return _context.Recharges.Where(b => b.Name == user).ToList();
+        }
+
+        // GET api/<PlanController>/5
+        [HttpGet("getRecharge/{id}")]
+        //[FromRoute]
+        //string user,
+        public IActionResult GetId([FromRoute]int id)
+        {
+            var plan = _context.Recharges.Where(b => b.RechargeId == id);
+            if (plan != null)
+            {
+                return Ok(new { StatusCode = 200, Plans = plan });
+            }
+            return NotFound(new
+            {
+                StatusCode = 400,
+                Message = "No Recharges Found"
+            });
+        }
+
+        // POST api/<PlanController>
+        
+        [HttpPost("addRecharge")]
+        public IActionResult Post([FromBody] Recharge plan)
+        {
+            if (plan == null)
+            {
                 return BadRequest();
+            }
             else
             {
-                _context.RechargesModels.Add(rechargeModel);
+                _context.Recharges.Add(plan);
                 _context.SaveChanges();
                 return Ok(new
                 {
                     StatusCode = 200,
-                    Message = "New Recharge Added Successfully"
+                    Message = "Plan Added Successufully"
                 });
             }
         }
-        [HttpPut("editRecharge/{id}")]
 
-        public IActionResult EditRecharge([FromBody] RechargeModel rechargeModel)
+        // PUT api/<PlanController>/5
+
+        [HttpPut("editRecharge/{id}")]
+        public IActionResult Put(int id, [FromBody] Recharge plan)
         {
-            if (rechargeModel == null)
+
+            if (plan == null)
             {
                 return BadRequest();
             }
             else
             {
-                var user = _context.RechargesModels.AsNoTracking().FirstOrDefault(e => e.rechargeId == rechargeModel.rechargeId);
-
+                var user = _context.Recharges.AsNoTracking().FirstOrDefault(e => e.RechargeId == plan.RechargeId);
                 if (user == null)
                 {
                     return NotFound(new
@@ -79,7 +90,7 @@ namespace S2PlansManagement.Controllers
                 }
                 else
                 {
-                    _context.Entry(rechargeModel).State = EntityState.Modified;
+                    _context.Entry(plan).State = EntityState.Modified;
                     _context.SaveChanges();
                     return Ok(new
                     {
@@ -90,27 +101,28 @@ namespace S2PlansManagement.Controllers
             }
         }
 
-        
+        //// DELETE api/<PlanController>/5
+        ////  [Route("deletePlan")]
         [HttpDelete("deleteRecharge/{id}")]
-        public IActionResult deleteRecharge(int rechargeId)
+        public IActionResult Delete(int id)
         {
-            var recharge = _context.RechargesModels.Find(rechargeId);
-            if (recharge == null)
+            var user = _context.Recharges.Find(id);
+            if (user == null)
             {
                 return NotFound(new
                 {
                     StatusCode = 404,
-                    Message = "Recharge details not found",
+                    Message = "User not found",
                 });
             }
             else
             {
-                _context.RechargesModels.Remove(recharge);
+                _context.Recharges.Remove(user);
                 _context.SaveChanges();
                 return Ok(new
                 {
                     StatusCode = 200,
-                    Message = "Recharge details Deleted"
+                    Message = "Employee Deleted"
                 });
             }
         }
