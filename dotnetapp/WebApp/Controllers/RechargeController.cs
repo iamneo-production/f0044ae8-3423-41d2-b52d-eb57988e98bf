@@ -23,7 +23,7 @@ namespace S2PlansManagement.Controllers
             var rechargeDetails = _context.RechargesModels.AsQueryable();
             return Ok(new { StatusCode = 200, rechargeDetails = rechargeDetails });
         }
-        [HttpGet("getRecharge/{rechargeId}")]
+        [HttpGet("getRecharge/{id}")]
 
         public IActionResult viewRecharge(int rechargeId)
         {
@@ -57,7 +57,7 @@ namespace S2PlansManagement.Controllers
                 });
             }
         }
-        [HttpPut("editRecharge")]
+        [HttpPut("editRecharge/{id}")]
 
         public IActionResult EditRecharge([FromBody] RechargeModel rechargeModel)
         {
@@ -88,18 +88,11 @@ namespace S2PlansManagement.Controllers
                     });
                 }
             }
-
-
         }
 
-
-
-
-
-
-
-        [HttpDelete("deleteRecharge/{rechargeId}")]
-        public IActionResult deleteEvent(int rechargeId)
+        
+        [HttpDelete("deleteRecharge/{id}")]
+        public IActionResult deleteRecharge(int rechargeId)
         {
             var recharge = _context.RechargesModels.Find(rechargeId);
             if (recharge == null)

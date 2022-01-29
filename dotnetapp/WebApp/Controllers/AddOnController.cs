@@ -19,13 +19,13 @@ namespace S2PlansManagement.Controllers
         {
             _context = context;
         }
-        [HttpGet("getAllAddon")]
+        [HttpGet("getAddons")]
         public IActionResult getAllAddon()
         {
             var g_addon = _context.AddonModels.AsQueryable();
             return Ok(new { StatusCode = 200, AddonDetails = g_addon });
         }
-        [HttpGet("getAddon/{addonId}")]
+        [HttpGet("getAddon/{id}")]
 
         public IActionResult getAddon(int addonId)
         {
@@ -60,7 +60,7 @@ namespace S2PlansManagement.Controllers
             }
         }
 
-        [HttpPut("editAddon")]
+        [HttpPut("editAddon/{id}")]
         public IActionResult editAddon([FromBody] AddonModel addonModel)
          {
              if (addonModel == null)
@@ -89,7 +89,7 @@ namespace S2PlansManagement.Controllers
              }
          }
 
-        [HttpDelete("deleteAddon/{addonId}")]
+        [HttpDelete("deleteAddon/{id}")]
         public IActionResult deleteAddon(int addonId)
         {
             var addon = _context.AddonModels.Find(addonId);

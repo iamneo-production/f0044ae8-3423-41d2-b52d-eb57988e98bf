@@ -19,13 +19,13 @@ namespace S2PlansManagement.Controllers
         {
             _context = context;
         }
-        [HttpGet("getAllPlan")]
+        [HttpGet("getPlans")]
         public IActionResult GetAllPlan()
         {
             var planDetails = _context.PlansModels.AsQueryable();
             return Ok(new { StatusCode = 200, planDetails = planDetails });
         }
-        [HttpGet("getPlan/{planId}")]
+        [HttpGet("getPlan/{id}")]
 
         public IActionResult GetPlan(int planId)
         {
@@ -59,7 +59,7 @@ namespace S2PlansManagement.Controllers
                 });
             }
         }
-        [HttpPut("editPlan")]
+        [HttpPut("editPlan/{id}")]
         
         public IActionResult EditPlan([FromBody] PlansModel plansModel)
         {  
@@ -94,7 +94,7 @@ namespace S2PlansManagement.Controllers
             
         }
     
-        [HttpDelete("deletePlan/{planId}")]
+        [HttpDelete("deletePlan/{id}")]
         public IActionResult DeletePlan(int planId)
         {
             var user = _context.PlansModels.Find(planId);
