@@ -41,6 +41,9 @@ namespace WebApp
             services.AddDbContext<AddonDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionStrings")));
 
+            services.AddDbContext<UserDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionStrings")));
+
             services.AddCors();
         }
 
