@@ -1,1 +1,58 @@
-<p>login works!</p>
+<div class="container" style="max-width: 1000px;">
+    <div class="row">
+
+        <div class="col-lg-6 text-center">
+            <img src="assets/Login.png" alt="" width="500px" height="500px">
+        </div>
+        <div class="col-lg-6 text-center" style="max-width:400px ;margin: auto">
+            <form [formGroup]="LoginForm" class="align-items-center center" (ngSubmit)="onSubmit()">
+
+                <!-- UserName -->
+                <div class="form-group" style="margin: 10px 0px">
+                    <div class="input-group  input-group-sm">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text  btn-secondary"> &nbsp;&nbsp;&nbsp;Email&nbsp;&nbsp;&nbsp;</div>
+                        </div>&nbsp;
+                        <input type="text" id="email" class="form-control" placeholder="Enter Email Id"
+                            formControlName="email">
+                    </div>
+                    <!-- Display Invalid Message -->
+                    <span class="text-danger alert"
+                        *ngIf="!LoginForm.get('email')?.valid && LoginForm.get('email')?.touched">Email Required !!!
+                        &nbsp;</span>
+                </div>
+                <br>
+
+
+                <!-- Password -->
+                <div class="form-group" style="margin: 10px 0px">
+                    <div class="input-group  input-group-sm">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text  btn-secondary">Password </div>
+                        </div>&nbsp;
+                        <input type="password" id="password" class="form-control" placeholder="Enter Password"
+                            formControlName="password">
+                    </div>
+                    
+                    <!-- Display Invalid Password  -->
+                    <span class="text-danger alert"
+                        *ngIf="!LoginForm.get('password')?.valid && LoginForm.get('password')?.touched">Password
+                        Required !!! &nbsp;</span>
+                </div>
+
+                <br>
+
+
+                <!-- Login button -->
+                <button class="btn btn-success" id="loginButton"
+                    [disabled]="!(LoginForm.get('email')?.valid && LoginForm.get('password')?.valid)">Login</button>
+                &nbsp;&nbsp;
+
+                <!-- Signup Link -->
+                <a class="btn btn-success" id="signupLink" href="/auth/signup">Signup</a> &nbsp;&nbsp;
+                <!-- routerLink="/auth/signup" -->
+                <!-- [routerLink]="['/auth','signup']" -->
+            </form>
+        </div>
+    </div>
+</div>
