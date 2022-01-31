@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AddonService } from 'src/app/services/addon.service';
 import { AddonsModel } from '../../../shared/AddonModel';
-import { AddonService } from '../addon.service';
 
 @Component({
     selector: 'app-add-addon',
