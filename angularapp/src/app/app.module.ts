@@ -27,6 +27,7 @@ import { UserControlComponent } from './admin/user-control/user-control.componen
 import { AddonsComponent } from './client-view/addons/addons.component';
 import { HistoryComponent } from './client-view/history/history.component';
 import { NavbarUserComponent } from './client-view/navbar-user/navbar-user.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,8 +61,9 @@ import { NavbarUserComponent } from './client-view/navbar-user/navbar-user.compo
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
