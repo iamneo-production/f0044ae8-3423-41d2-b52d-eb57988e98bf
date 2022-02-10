@@ -12,7 +12,7 @@ export class LoginService {
 
     constructor(private http: HttpClient, public router: Router) {}
 
-    BaseUrl = 'https://localhost:5001/';
+    BaseUrl = "https://8080-cfdbfaffcbafbeaabeccbbfbcafdeccaedae.examlyiopb.examly.io/";
 
     // Login Check For Normal Users
     LoginCheck(_email: string, _password: string): Observable<ResponseModel> {

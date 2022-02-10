@@ -13,9 +13,9 @@ export class ViewPostpaidComponent implements OnInit {
     Plans!: PlanModel[];
     public ngOnInit(): void {
         this.GetPlans();
-        setTimeout(() => {
-            this.ShowPostPaidOnly();
-        }, 100);
+        // setTimeout(() => {
+        //     this.ShowPostPaidOnly();
+        // }, 100);
     }
 
 

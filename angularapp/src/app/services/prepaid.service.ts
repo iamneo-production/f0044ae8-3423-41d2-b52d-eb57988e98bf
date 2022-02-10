@@ -11,7 +11,7 @@ export class PrepaidService {
 
   constructor(public http: HttpClient, public router: Router) { }
 
-    BaseUrl = "https://localhost:5001/";
+    BaseUrl = "https://8080-cfdbfaffcbafbeaabeccbbfbcafdeccaedae.examlyiopb.examly.io/";
 
     // *----------------*--------------*-------------
 
