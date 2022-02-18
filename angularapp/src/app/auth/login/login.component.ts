@@ -47,18 +47,15 @@ export class LoginComponent implements OnInit {
             // Return the User is valid or Not
             this._loginService.AdminCheck(_email, _password).subscribe(data => {
                 this.auth = data.allowed;
-                console.log(this.auth)
-            });
-
-            // Navigates If the User is valid 
-            setTimeout(() => {
+                // Navigates If the User is valid 
                 if (this.auth) {
                     this._loginService.router.navigate(['admin','prepaid' ,'view-pre-paid']);
                 } else {
                     // Else Alert The User
                     alert("User Not Avaliable for admin")
                 }
-            }, 100);
+                console.log(this.auth)
+            });
         } 
         
         // Normal User Check
@@ -68,17 +65,15 @@ export class LoginComponent implements OnInit {
             this._loginService.LoginCheck(_email, _password ).subscribe(data => {
                 this.auth = data.allowed;
                 this.user = data.user;
-            });
-
-            // Navigates If the User is valid 
-            setTimeout(() => {
+                
+                // Navigates If the User is valid 
                 if (this.auth) {
                     this._loginService.router.navigate([this.user, "viewplans"]);
                 } else {
                     // Else Alert The User
                     alert("User Not Avaliable")
                 }
-            }, 100);
+            });
         }
     }
     ToSignup(){
