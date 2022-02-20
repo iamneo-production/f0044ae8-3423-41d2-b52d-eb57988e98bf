@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditAddonComponent } from './edit-addon.component';
+import { EditAddonsComponent } from './edit-addons.component';
 
-describe('EditAddonComponent', () => {
-  let component: EditAddonComponent;
-  let fixture: ComponentFixture<EditAddonComponent>;
+describe('EditAddonsComponent', () => {
+  let component: EditAddonsComponent;
+  let fixture: ComponentFixture<EditAddonsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditAddonComponent ]
+      declarations: [ EditAddonsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditAddonComponent);
+    fixture = TestBed.createComponent(EditAddonsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
