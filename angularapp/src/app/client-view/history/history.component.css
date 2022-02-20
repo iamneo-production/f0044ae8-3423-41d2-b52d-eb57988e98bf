@@ -1,0 +1,8 @@
+.card-bg{
+  background: linear-gradient(220.55deg, #00E0EE 0%, #AD00FE 100%);
+  backdrop-filter: blur(18px) saturate(200%);
+  margin : 0px;
+}
+.card-footer{
+  padding : 0px;
+}
