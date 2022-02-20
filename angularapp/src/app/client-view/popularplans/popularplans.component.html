@@ -2,23 +2,28 @@
 
     <!-- Forms Header -->
     <div class="row text-center">
-          <h1 class="display-4">POPULAR PLANS</h1>
+          <h1 class="display-5">Popular Plans</h1>
           <hr>
     </div>
 
 
     <div class="row" style="margin: 10px ; padding: 10px">
-
-          <!-- Search bar -->
-          <div class="col text-end">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      <!-- Search bar -->
+      <div class="col text-end center" style="max-width: 600px; min-width: 400px;">
+        <div class="input-group center">
+          <div class="form-outline">
+            <input type="search" id="form1" class="form-control" style="width: 400px;" placeholder="Search"/>
           </div>
-
-          <!-- Search button -->
-          <div class="col-2 text-center">
-                <button class="btn btn-success" type="submit">Search</button>
-          </div>
+          <button type="button" class="btn btn-primary"  type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+
+
     <div class="row">
 
           <!-- Looping Through Cards -->
@@ -76,7 +81,7 @@
 
                                         <!-- Recharge Type -->
                                         <div class="col-6">
-                                              <div class="input-group mb-2">
+                                              <div class="input-group mb-2 disabled">
                                                     <div class="input-group-prepend">
                                                           <div class="input-group-text inputx btn-secondary">Recharge Type</div>
                                                     </div>&nbsp;

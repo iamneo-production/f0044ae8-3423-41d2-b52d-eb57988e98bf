@@ -13,9 +13,6 @@ export class ViewPostpaidComponent implements OnInit {
     Plans!: PlanModel[];
     public ngOnInit(): void {
         this.GetPlans();
-        // setTimeout(() => {
-        //     this.ShowPostPaidOnly();
-        // }, 100);
     }
 
 
@@ -27,6 +24,7 @@ export class ViewPostpaidComponent implements OnInit {
         this._postPaidService.GetPlans().subscribe(
             (data) => {
                 this.Plans = data;
+                this.ShowPostPaidOnly();
             }
         );
     }

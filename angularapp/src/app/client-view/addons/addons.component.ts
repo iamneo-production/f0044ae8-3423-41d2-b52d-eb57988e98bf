@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AddonsModel } from 'src/app/shared/AddonModel';
 import { RechargeModel } from 'src/app/shared/RechargeModel';
 import { UserModel } from 'src/app/shared/UserModel';
-import { UserService } from '../user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-addons',

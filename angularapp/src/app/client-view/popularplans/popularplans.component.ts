@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AddonsModel } from 'src/app/shared/AddonModel';
 import { PlanModel } from 'src/app/shared/PlanModel';
 import { RechargeModel } from 'src/app/shared/RechargeModel';
-import { UserService } from '../user.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -29,7 +28,7 @@ export class PopularplansComponent implements OnInit {
         this.RechargeForm = new FormGroup({
             _RechargeType: new FormControl("PrePaid", [Validators.required]),
             _Mobile: new FormControl(null, [Validators.required , Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
-            _Email: new FormControl(null, [Validators.required]),
+            // _Email: new FormControl(null, [Validators.required]),
         });
     }
 

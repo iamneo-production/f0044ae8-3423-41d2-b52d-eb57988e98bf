@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAddonComponent } from './admin/addon/add-addon/add-addon.component';
 import { AddonComponent } from './admin/addon/addon.component';
-import { EditAddonComponent } from './admin/addon/edit-addon/edit-addon.component';
+import { EditAddonsComponent } from './admin/addon/edit-addon/edit-addon.component';
 import { ViewAddonComponent } from './admin/addon/view-addon/view-addon.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddPostpaidComponent } from './admin/postpaid/add-postpaid/add-postpaid.component';
@@ -23,7 +23,7 @@ import { HistoryComponent } from './client-view/history/history.component';
 import { PopularplansComponent } from './client-view/popularplans/popularplans.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  { path: '', component: LoginComponent },
   {
     path: 'auth',
     component: AuthComponent,
@@ -67,7 +67,7 @@ const routes: Routes = [
         component: AddonComponent,
         children: [
           { path: 'view-addons', component: ViewAddonComponent },
-          { path: 'edit-addon/:id', component: EditAddonComponent },
+          { path: 'edit-addon/:id', component: EditAddonsComponent },
           { path: 'add-addon', component: AddAddonComponent },
         ],
       },

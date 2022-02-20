@@ -1,7 +1,7 @@
 <div class="container">
   <form class="form-group" [formGroup]="EditPrePaidForm" (ngSubmit)="UpdatePlan()">
     <div class="text-center">
-      <h1 class="display-4">Add PrePaid Plans</h1>
+      <h1 class="display-5">Add PrePaid Plans</h1>
     </div>
     <hr>
     <div class="row">
@@ -90,7 +90,7 @@
           <!-- Add Button -->
           <button type="submit" class="btn btn-primary"
             [disabled]="!(EditPrePaidForm.get('_PlanPrice')?.valid && EditPrePaidForm.get('_PlanName')?.valid && EditPrePaidForm.get('_PlanValidity')?.valid && EditPrePaidForm.get('_PlanOffers')?.valid)"
-            style="margin: 20px;">Add Plans</button>
+            style="margin: 20px;">Add Plan</button>
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostpaidService } from '../../postpaid/postpaid.service';
 import { PlanModel } from '../../../shared/PlanModel';
-import { PrepaidService } from '../prepaid.service';
+import { PrepaidService } from 'src/app/services/prepaid.service';
 
 @Component({
   selector: 'app-view-prepaid',
@@ -16,10 +15,6 @@ export class ViewPrepaidComponent implements OnInit {
   Plans: PlanModel[] = [];
   public ngOnInit(): void {
       this.GetPlans();
-      setTimeout(() => {
-          this.ShowPrepaidOnly();
-      }, 100);
-
   }
 
   /**
@@ -30,6 +25,7 @@ export class ViewPrepaidComponent implements OnInit {
   GetPlans() {
       this._prePaidService.GetPlans().subscribe(data => {
           this.Plans = data;
+          this.ShowPrepaidOnly();
       });
   }
 

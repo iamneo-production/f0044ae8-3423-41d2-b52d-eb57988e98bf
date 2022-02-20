@@ -20,7 +20,7 @@ import { AddPostpaidComponent } from './admin/postpaid/add-postpaid/add-postpaid
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddonComponent } from './admin/addon/addon.component';
 import { AddAddonComponent } from './admin/addon/add-addon/add-addon.component';
-import { EditAddonComponent } from './admin/addon/edit-addon/edit-addon.component';
+import { EditAddonsComponent } from './admin/addon/edit-addon/edit-addon.component';
 import { ViewAddonComponent } from './admin/addon/view-addon/view-addon.component';
 import { NavbarComponent } from './admin/navbar/navbar.component';
 import { UserControlComponent } from './admin/user-control/user-control.component';
@@ -48,7 +48,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AddPostpaidComponent,
     AddonComponent,
     AddAddonComponent,
-    EditAddonComponent,
+    EditAddonsComponent,
     ViewAddonComponent,
     NavbarComponent,
     UserControlComponent,

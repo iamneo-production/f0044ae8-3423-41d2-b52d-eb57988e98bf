@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RechargeModel } from 'src/app/shared/RechargeModel';
-import { UserService } from '../user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-history',
@@ -15,10 +15,12 @@ export class HistoryComponent implements OnInit {
    * @Action Maintains Recharge History Of Individual Users
    */
   Recharges!: RechargeModel[];
+  Len !: number; 
   ngOnInit(): void {
     this._userService.GetRecharges().subscribe(
       data =>{
         this.Recharges = data;
+        this.Len = data.length;
       }
     );
   }

@@ -2,7 +2,9 @@
 -- CREATE DATABASE Airnet;
 -- SELECT * FROM sys.databases;  
 -- SELECT * FROM INFORMATION_SCHEMA.TABLES;
--- use Airnet;
+use Airnet;
+select * from Recharge;
+-- delete from Recharge where RechargeId=999615;
 -- create table Users(
 -- 	Email nvarchar(50) primary key,
 -- 	Password nvarchar(25),
@@ -10,22 +12,6 @@
 -- 	MobileNumber bigint,
 -- 	UserRole nvarchar(15)
 -- );
--- insert into Users values(
--- 	'test@gmail.com',
--- 	'Test@123',
--- 	'testuser',
--- 	'9876543210',
--- 	'user'
--- );
--- insert into Users values(
--- 	'admin@gmail.com',
--- 	'Admin@123',
--- 	'admin',
--- 	'9876543211',
--- 	'admin'
--- );
-
--- select * from Users;
 
 -- create table Login(
 -- 	Email nvarchar(50) primary key ,
@@ -67,7 +53,23 @@
 -- 	RechargePrice int
 -- )
 
+-- Users
+-- insert into Users values(
+-- 	'test@gmail.com',
+-- 	'Test@123',
+-- 	'testuser',
+-- 	'9876543210',
+-- 	'user'
+-- );
+-- insert into Users values(
+-- 	'admin@gmail.com',
+-- 	'Admin@123',
+-- 	'admin',
+-- 	'9876543211',
+-- 	'admin'
+-- );
 
+-- PLans
 
 -- Insert into Plans values(
 -- 	13121,
@@ -89,11 +91,52 @@
 -- );
 -- Insert into Plans values(
 -- 	12122,
--- 	'PostPaid',
+-- 	'PrePaid',
 -- 	'Great Plan',
 -- 	28,
 -- 	'1.5GB Daily Data',
 -- 	599,
 -- 	'Netflix | Hotstar'
 -- );
--- SELECT * from Plans;
+
+
+--Addons
+
+-- Insert into Addon values(
+-- 	12001,
+-- 	'Double Cheese',
+-- 	'200',
+-- 	'50GB Data',28
+-- );
+-- Insert into Addon values(
+-- 	12002,
+-- 	'Forever Freak',
+-- 	'159',
+-- 	'30GB Data', 20
+-- );
+-- Insert into Addon values(
+-- 	12003,
+-- 	'New year Damakka',
+-- 	'300',
+-- 	'100GB Data',62
+-- );
+-- Insert into Addon values(
+-- 	12004,
+-- 	'WorkFrom Home',
+-- 	'250',
+-- 	'50GB Data',25
+-- );
+-- Insert into Addon values(
+-- 	12005,
+-- 	'Circket fever',
+-- 	'100',
+-- 	'20GB Data',
+-- 	21
+-- );
+-- Insert into Addon values(
+-- 	12006,
+-- 	'Movie maze',
+-- 	'50',
+-- 	'10GB Data',
+-- 	15
+-- );

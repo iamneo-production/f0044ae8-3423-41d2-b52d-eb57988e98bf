@@ -2,10 +2,13 @@
 
   <!-- Cards Header -->
   <div class="row text-center">
-    <h1 class="display-4">HISTORY</h1>
+    <h1 class="display-5">History</h1>
     <hr>
   </div>
 
+  <div class="container text-center" *ngIf="Len === 0">
+    <h1>No Recharges Done Yet !</h1>
+  </div>
   <div class="row">
 
     <!-- Looping Through Cards -->

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-client-view',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientViewComponent implements OnInit {
 
-  constructor() { }
+  user!:string;
+  constructor(private _UserService :UserService) {
+    
+    // Gets the Current User
+    this.user =  this._UserService.GetCurrentUser();
+    // Stores in Local Variable
+    this._UserService.CurrentUser = this.user;
+   }
 
   ngOnInit(): void {
   }

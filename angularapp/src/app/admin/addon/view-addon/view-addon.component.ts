@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AddonsModel } from '../../../shared/AddonModel';
-import { AddonService } from '../addon.service';
+import { AddonService } from 'src/app/services/addon.service';
 
 @Component({
       selector: 'app-view-addon',

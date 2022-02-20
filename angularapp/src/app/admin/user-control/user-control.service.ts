@@ -10,7 +10,7 @@ import { UserModel } from 'src/app/shared/UserModel';
 export class UserControlService {
 
   constructor(public http: HttpClient, public router: Router) { }
-  BaseUrl = "https://localhost:5001/admin/users/";
+  BaseUrl = "https://8080-cfdbfaffcbafbeaabeccbbfbcafdeccaedae.examlyiopb.examly.io/admin/users/";
 
     // *----------------*--------------*-------------
 

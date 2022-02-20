@@ -1,0 +1,10 @@
+.card-bg{
+    /* background: linear-gradient(220.55deg, #7CF7FF 0%, #4B73FF 100%); */
+    background: linear-gradient(220.55deg, #2d4ee0 0%, #2996fc 100%);
+    backdrop-filter: blur(18px) saturate(200%);
+    margin : 0px;
+  }
+  .card-footer{
+    padding : 0px;
+  }
+  
