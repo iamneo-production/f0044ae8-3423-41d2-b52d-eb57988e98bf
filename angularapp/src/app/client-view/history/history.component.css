@@ -3,6 +3,11 @@
   backdrop-filter: blur(18px) saturate(200%);
   margin : 0px;
 }
+
 .card-footer{
   padding : 0px;
 }
+
+/* .card-footer{
+  padding : 0px;
+} */
