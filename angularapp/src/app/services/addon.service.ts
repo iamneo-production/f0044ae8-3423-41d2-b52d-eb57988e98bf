@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AddonsModel } from '../shared/AddonModel';
+import { NgToastService } from 'ng-angular-popup'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddonService {
 
-  constructor(public http: HttpClient, public router: Router) { }
+  constructor(public http: HttpClient, public router: Router , public  toast: NgToastService) { }
 
   
   BaseUrl = "https://8080-cfdbfaffcbafbeaabeccbbfbcafdeccaedae.examlyiopb.examly.io/";
@@ -60,6 +62,7 @@ export class AddonService {
   AddAddon(body : AddonsModel):Observable<AddonsModel>{
       let Url = this.BaseUrl+"admin/addAddon/";
       const headers = { 'content-type': 'application/json'}  ;
+      this.toast.success({detail: "Addon Added!" , duration: 4000})
       return this.http.post<AddonsModel>(Url,JSON.stringify(body),{'headers':headers});
   }
 
@@ -78,7 +81,7 @@ export class AddonService {
   EditId!: AddonsModel;
   EditAddon(params: number, body: AddonsModel):Observable<AddonsModel>{
       let Url = this.BaseUrl+"admin/editAddon/";
-
+      this.toast.info({detail: "Addon Updated!" , duration: 4000});
       return this.http.put<AddonsModel>(Url + params, body);
   }
 
@@ -94,6 +97,7 @@ export class AddonService {
 
   OnDelete(AddonId: number):Observable<AddonsModel> {
       let DeleteUrl = this.BaseUrl+"admin/deleteAddon/";
+      this.toast.error({detail: "Addon Deleted!" , duration: 4000});
       return this.http.delete<AddonsModel>(DeleteUrl + AddonId);
   }
 

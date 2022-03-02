@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserModel } from 'src/app/shared/UserModel';
-import { UserControlService } from './user-control.service';
+import { UserControlService } from '../../services/user-control.service';
 
 @Component({
     selector: 'app-user-control',
@@ -34,7 +34,7 @@ export class UserControlComponent implements OnInit {
     // Gets All the Users
     GetUsers() {
         this._userService.GetUsers().subscribe(
-            (data) => {
+            (data: UserModel[]) => {
                 this.Users = data;
             }
         )
@@ -50,7 +50,7 @@ export class UserControlComponent implements OnInit {
             userRole: this.EditUserForm.get('_UserRole')?.value
         }
 
-        this._userService.EditUser(body.email,body).subscribe(data => {
+        this._userService.EditUser(body.email,body).subscribe(() => {
             this.GetUsers()
         })
     }

@@ -1,34 +1,34 @@
 <div class="container">
 
-  <!-- Cards Header -->
-  <div class="row text-center">
-    <h1 class="display-5">History</h1>
-    <hr>
-  </div>
-
-  <div class="container text-center" *ngIf="Len === 0">
-    <h1>No Recharges Done Yet !</h1>
-  </div>
-  <div class="row">
-
-    <!-- Looping Through Cards -->
-    <div class="col- col-xs-12 col-sm-12 col-md-6 col-lg-4 card-center" *ngFor="let r of Recharges; let i = index">
-
-      <!-- Recharge History Details -->
-      <div class="card text-center">
-        <div class="card-bg text-white">
-          <h1 class="card-img-top text-center amountWhite">₹ {{r.rechargePrice}}</h1>
-        </div>
-        <div class="card-body" style="padding: 12px 8px 8px 8px;">
-          <h5 class="card-title">{{r.rechargePlan}} ({{r.rechargetype}})</h5>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Mobile : {{r.mobile}}</li>
-          </ul>
-          <div class="card-footer text-center">
-            <h4>To : {{r.name}}</h4>
-          </div>
-        </div>
+      <!-- Cards Header -->
+      <div class="row text-center">
+            <h1 class="display-5">History</h1>
+            <hr>
       </div>
-    </div>
-  </div>
+
+      <div class="container text-center" *ngIf="Len === 0">
+            <h1>No Recharges Done Yet !</h1>
+      </div>
+      <div class="row">
+
+            <!-- Looping Through Cards -->
+            <div class="col- col-xs-12 col-sm-12 col-md-6 col-lg-4 card-center"
+                  *ngFor="let r of Recharges; let i = index">
+
+                  <!-- Recharge History Details -->
+                  <div class="card text-center">
+                        <h1 class="card-img-top card-bg text-white text-center amountWhite">₹ {{r.rechargePrice}}</h1>
+
+                        <div class="card-body" style="padding: 12px 8px 8px 8px;">
+                              <h5 class="card-title">{{r.rechargePlan}} ({{r.rechargetype}})</h5>
+                              <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Mobile : {{r.mobile}}</li>
+                              </ul>
+                              <div class="card-footer text-center">
+                                    <h4>To : {{r.name}}</h4>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
 </div>

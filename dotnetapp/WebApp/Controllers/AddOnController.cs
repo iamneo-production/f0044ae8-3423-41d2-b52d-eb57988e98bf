@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,16 +22,16 @@ namespace WebApp.Controllers
 
             // GET: api/<PlanController>
             [HttpGet("getAddons")]
-            public IEnumerable<Addon> Get()
+            public async Task<IEnumerable<Addon>> Get()
             {
-                  return _context.Addons.ToList();
+                  return await _context.Addons.ToListAsync();
             }
 
             // GET api/<PlanController>/5
             [HttpGet("getAddon/{id}")]
-            public IActionResult GetPlan(int id)
+            public async Task<IActionResult> GetPlan(int id)
             {
-                  var plan = _context.Addons.Find(id);
+                  var plan = await _context.Addons.FindAsync(id);
                   if (plan != null)
                   {
                         return Ok(new { StatusCode = 200, Plans = plan });
@@ -44,7 +46,7 @@ namespace WebApp.Controllers
             // POST api/<PlanController>
             //  [Route("addPlan")]
             [HttpPost("addAddon")]
-            public IActionResult Post([FromBody] Addon plan)
+            public async Task<IActionResult> Post([FromBody] Addon plan)
             {
                   if (plan == null)
                   {
@@ -52,7 +54,7 @@ namespace WebApp.Controllers
                   }
                   else
                   {
-                        _context.Addons.Add(plan);
+                        await _context.Addons.AddAsync(plan);
                         _context.SaveChanges();
                         return Ok(new
                         {
@@ -65,7 +67,7 @@ namespace WebApp.Controllers
             // PUT api/<PlanController>/5
             //  [Route("editPlan")]
             [HttpPut("editAddon/{id}")]
-            public IActionResult Put(int id, [FromBody] Addon plan)
+            public async Task<IActionResult> Put(int id, [FromBody] Addon plan)
             {
                   if (plan == null)
                   {
@@ -73,7 +75,7 @@ namespace WebApp.Controllers
                   }
                   else
                   {
-                        var user = _context.Addons.AsNoTracking().FirstOrDefault(e => e.AddonId == plan.AddonId);
+                        var user = await _context.Addons.AsNoTracking().FirstOrDefaultAsync(e => e.AddonId == plan.AddonId);
                         if (user == null)
                         {
                               return NotFound(new
@@ -98,9 +100,9 @@ namespace WebApp.Controllers
             // DELETE api/<PlanController>/5
             //  [Route("deletePlan")]
             [HttpDelete("deleteAddon/{id}")]
-            public IActionResult Delete(int id)
+            public async Task<IActionResult> Delete(int id)
             {
-                  var user = _context.Addons.Find(id);
+                  var user = await _context.Addons.FindAsync(id);
                   if (user == null)
                   {
                         return NotFound(new

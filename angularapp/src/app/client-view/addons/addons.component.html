@@ -1,170 +1,179 @@
 <div class="container">
 
-  <!-- Forms Header -->
-  <div class="row text-center">
-    <h1 class="display-5">Addons</h1>
-    <hr>
-  </div>
-
-
-  
-  <div class="row" style="margin: 10px ; padding: 10px">
-    <!-- Search bar -->
-    <div class="col text-end center" style="max-width: 600px; min-width: 400px;">
-      <div class="input-group center">
-        <div class="form-outline">
-          <input type="search" id="form1" class="form-control" style="width: 400px;" placeholder="Search"/>
-        </div>
-        <button type="button" class="btn btn-primary"  type="submit">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg>
-        </button>
+      <!-- Forms Header -->
+      <div class="row text-center">
+            <h1 class="display-5">Addons</h1>
+            <hr>
       </div>
-    </div>
-  </div>
 
 
-  <div class="row">
-
-    <!-- Looping Through Cards -->
-    <div class="col- col-xs-12 col-sm-12 col-md-6 col-lg-4 card-center" *ngFor="let a of Addons ; let i = index"
-      id="addOnsGrid1">
-
-      <div class="card text-center">
-        <!-- Addon Price -->
-        <div class="card-bg text-white">
-          <h1 class="card-img-top text-center amountWhite">₹ {{a.addonPrice}}</h1>
-        </div>
-
-        <!-- Addon Details -->
-        <div class="card-body" style="padding: 12px 8px 8px 8px;">
-          <h5 class="card-title">{{a.addonName}}</h5>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Data : {{a.addonDetails}}</li>
-            <li class="list-group-item">Validity : {{a.addonValidity}}</li>
-          </ul>
-
-          <!-- Buy Plan -->
-          <div class="card-footer text-center">
-            <button id="rechargeButton" class="btn btn-info btn-sm" data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop" (click)="ToRecharge(i)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
-                class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                <path
-                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--                   -->
-  <!-- User Details Form -->
-  <!--                   -->
-
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="display-6 modal-title" id="staticBackdropLabel">Recharge Form</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form class="form-group" [formGroup]="RechargeForm" (ngSubmit)="PutRechargeDetails()">
-            <div class="row">
-
-              <!-- Recharge Type -->
-              <div class="col-6">
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text inputx btn-secondary">Recharge Type</div>
-                  </div>&nbsp;
-                  <input type="Addon" class="inputx form-control" disabled placeholder="Addon">
-                </div>
-              </div>
-
-              <!-- Email -->
-              <div class="col-6">
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text inputx btn-secondary">Email ID</div>
-                  </div>&nbsp;
-                  <input type="email" class="inputx form-control" formControlName="_Email" placeholder="Enter Email ID">
-                </div>
-
-                <!-- Invalid Message Display-->
-                <div class="text-danger alert inputy"
-                  *ngIf="!RechargeForm.get('_Email')?.valid && RechargeForm.get('_Email')?.touched;">
-                  Invalid
-                  Email!!!</div>
-              </div>
-
-              <!-- UserName -->
-              <div class="col-6">
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text inputx btn-secondary">UserName</div>
-                  </div>&nbsp;
-
-                  <!-- Invalid Message Display-->
-                  <input type="text" class="inputx form-control" disabled placeholder={{user}}>
-                </div>
-              </div>
-
-              <!-- Addon Name -->
-              <div class="col-6">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text inputx btn-secondary">Addon Name</div>
-                  </div>&nbsp;
-                  <input type="text" class="inputx form-control" placeholder={{this.SetPlanRecharge?.addonName}}
-                    disabled>
-                </div>
-              </div>
-
-              <!-- Mobile Number -->
-              <div class="col-6">
-                <div class="input-group mb">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text inputx btn-secondary">Mobile Number</div>
-                  </div>&nbsp;
-                  <input type="text" class="inputx form-control" formControlName="_Mobile"
-                    placeholder="Enter number to Recharge">
-                </div>
-                <div class="text-danger alert inputy"
-                  *ngIf="!RechargeForm.get('_Mobile')?.valid && RechargeForm.get('_Mobile')?.touched;">
-                  Invalid
-                  Mobile Number!!!</div>
-              </div>
-
-
-              <!-- Plan Price -->
-              <div class="col-6">
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text inputx btn-secondary">Plan Price</div>
-                  </div>&nbsp;
-                  <input type="text" class="inputx form-control" placeholder="{{this.SetPlanRecharge?.addonPrice}}"
-                    disabled>
-                </div>
-              </div>
+      <div class="row" style="margin: 10px ; padding: 10px">
+            <!-- Search bar -->
+            <div class="col text-end center" style="max-width: 600px; min-width: 0px; width: 400px;">
+                  <div class="input-group mb-2">
+                        <input type="search" id="form1" class="form-control"
+                              style="width: 50px;min-width: 50px; max-width: 500px;" [(ngModel)]="query"
+                              placeholder="Search" /> &nbsp;
+                        <div class="input-group-prepend">
+                              <button type="button" class="btn btn-primary" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                          class="bi bi-search" viewBox="0 0 16 16">
+                                          <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                              </button>
+                        </div>
+                  </div>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <!-- Close -->
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-          <!-- Recharge Plan -->
-          <button type="button" class="btn btn-primary"
-            [disabled]="!(RechargeForm.get('_Mobile')?.valid && RechargeForm.get('_Email')?.valid)"
-            (click)="PutRechargeDetails()" data-bs-dismiss="modal">Recharge</button>
-        </div>
       </div>
-    </div>
-  </div>
+
+      <div class="row">
+
+            <!-- Looping Through Cards -->
+            <div class="col- col-xs-12 col-sm-12 col-md-6 col-lg-4 card-center"
+                  *ngFor="let a of Addons | searchFilter: query ; let i = index" id="addOnsGrid1">
+
+                  <div class="card text-center">
+                        <!-- Addon Price -->
+                        <h1 class="card-img-top card-bg text-white text-center amountWhite">₹ {{a.addonPrice}}</h1>
+
+                        <!-- Addon Details -->
+                        <div class="card-body" style="padding: 12px 8px 8px 8px;">
+                              <h5 class="card-title">{{a.addonName}}</h5>
+                              <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Data : {{a.addonDetails}}</li>
+                                    <li class="list-group-item">Validity : {{a.addonValidity}}</li>
+                              </ul>
+
+                              <!-- Buy Plan -->
+                              <div class="card-footer text-center">
+                                    <button id="rechargeButton" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                          data-bs-target="#staticBackdrop" (click)="ToRecharge(i)">
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                                                <path
+                                                      d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z" />
+                                          </svg>
+                                    </button>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+      <!--                   -->
+      <!-- User Details Form -->
+      <!--                   -->
+
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                              <h1 class="display-6 modal-title" id="staticBackdropLabel">Recharge Form</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                              <form class="form-group" [formGroup]="RechargeForm" (ngSubmit)="PutRechargeDetails()">
+                                    <div class="row">
+                                          <!-- Recharge Type -->
+                                          <div class="col-6">
+                                                <div class="input-group mb-2">
+                                                      <div class="input-group-prepend">
+                                                            <div class="input-group-text inputx btn-secondary">Recharge
+                                                                  Type</div>
+                                                      </div>&nbsp;
+                                                      <input type="Addon" class="inputx form-control" disabled
+                                                            placeholder="Addon">
+                                                </div>
+                                          </div>
+
+                                          <!-- UserName -->
+                                          <div class="col-6">
+                                                <div class="input-group mb-2">
+                                                      <div class="input-group-prepend">
+                                                            <div class="input-group-text inputx btn-secondary">UserName
+                                                            </div>
+                                                      </div>&nbsp;
+
+                                                      <!-- Invalid Message Display-->
+                                                      <input type="text" class="inputx form-control" disabled
+                                                            placeholder={{user}}>
+                                                </div>
+                                          </div>
+
+                                          <!-- Addon Name -->
+                                          <div class="col-6">
+                                                <div class="input-group">
+                                                      <div class="input-group-prepend">
+                                                            <div class="input-group-text inputx btn-secondary">Addon
+                                                                  Name</div>
+                                                      </div>&nbsp;
+                                                      <input type="text" class="inputx form-control"
+                                                            placeholder={{this.SetPlanRecharge?.addonName}} disabled>
+                                                </div>
+                                          </div>
+
+                                          <!-- Plan Price -->
+                                          <div class="col-6">
+                                                <div class="input-group mb-2">
+                                                      <div class="input-group-prepend">
+                                                            <div class="input-group-text inputx btn-secondary">Plan
+                                                                  Price</div>
+                                                      </div>&nbsp;
+                                                      <input type="text" class="inputx form-control"
+                                                            placeholder="{{this.SetPlanRecharge?.addonPrice}}" disabled>
+                                                </div>
+                                          </div>
+
+                                          <!-- Mobile Number -->
+                                          <div class="col-6">
+                                                <div class="input-group mb">
+                                                      <div class="input-group-prepend">
+                                                            <div class="input-group-text inputx btn-secondary">Mobile
+                                                                  Number</div>
+                                                      </div>&nbsp;
+                                                      <input type="text" class="inputx form-control"
+                                                            formControlName="_Mobile"
+                                                            placeholder="Enter number to Recharge">
+                                                </div>
+                                                <div class="text-danger alert inputy"
+                                                      *ngIf="!RechargeForm.get('_Mobile')?.valid && RechargeForm.get('_Mobile')?.touched;">
+                                                      Invalid
+                                                      Mobile Number!!!</div>
+                                          </div>
+
+                                          <!-- Username -->
+                                          <div class="col-6">
+                                                <div class="input-group mb-2">
+                                                      <div class="input-group-prepend">
+                                                            <div class="input-group-text inputx btn-secondary">Name
+                                                            </div>
+                                                      </div>&nbsp;
+                                                      <input type="text" class="inputx form-control"
+                                                            formControlName="_Name" placeholder="Enter Name">
+                                                </div>
+
+                                                <!-- Invalid Message Display-->
+                                                <div class="text-danger alert inputy"
+                                                      *ngIf="!RechargeForm.get('_Name')?.valid && RechargeForm.get('_Name')?.touched;">
+                                                      Invalid
+                                                      Name!!!</div>
+                                          </div>
+                                    </div>
+                              </form>
+                        </div>
+                        <div class="modal-footer">
+                              <!-- Close -->
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                              <!-- Recharge Plan -->
+                              <button type="button" class="btn btn-primary"
+                                    [disabled]="!(RechargeForm.get('_Mobile')?.valid && RechargeForm.get('_Name')?.valid)"
+                                    (click)="PutRechargeDetails()" data-bs-dismiss="modal">Recharge</button>
+                        </div>
+                  </div>
+            </div>
+      </div>
 </div>

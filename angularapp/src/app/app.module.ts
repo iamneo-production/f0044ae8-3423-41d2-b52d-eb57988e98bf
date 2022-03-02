@@ -28,6 +28,9 @@ import { AddonsComponent } from './client-view/addons/addons.component';
 import { HistoryComponent } from './client-view/history/history.component';
 import { NavbarUserComponent } from './client-view/navbar-user/navbar-user.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgToastModule } from 'ng-angular-popup';
+import { SearchFilterPipe } from './services/search-filter.pipe';
+import { FooterComponent } from './admin/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -55,13 +58,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AddonsComponent,
     HistoryComponent,
     NavbarUserComponent,
+    SearchFilterPipe,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgToastModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

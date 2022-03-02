@@ -2,6 +2,7 @@
     background: linear-gradient(220.55deg, #A531DC 0%, #4300B1 100%);
     backdrop-filter: blur(18px) saturate(200%);
     margin : 0px;
+    border-radius: 1rem 1rem 0px 0px;
 }
 .card-footer{
     padding : 0px;

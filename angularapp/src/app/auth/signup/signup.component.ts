@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { UserModel } from 'src/app/shared/UserModel';
+import { NgToastService } from 'ng-angular-popup'
+
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +12,7 @@ import { UserModel } from 'src/app/shared/UserModel';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private _loginService : LoginService ) { }
+  constructor(private _loginService : LoginService, private toast: NgToastService ) { }
 
     // Reactive Forms Initilization & Validation
     SignupForm!: FormGroup;
@@ -60,6 +62,7 @@ export class SignupComponent implements OnInit {
 
         // Post the Signup Value in User Model
         this._loginService.SignupCheck(body).subscribe();
+        this.toast.success({detail: "Signup Success!" , duration: 5000 })
 
         // Navigating Back To Login Page
         setTimeout(() => {

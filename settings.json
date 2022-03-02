@@ -1,0 +1,16 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "terminal.integrated.letterSpacing": 2,
+    "mssql.connections": [
+        {
+            "server": "localhost",
+            "database": "",
+            "authenticationType": "SqlLogin",
+            "user": "sa",
+            "password": "examlyMssql@123",
+            "emptyPasswordInput": false,
+            "savePassword": true
+        }
+    ],
+    "link" : "https://8080-cfdbfaffcbafbeaabeccbbfbcafdeccaedae.examlyiopb.examly.io/"
+}

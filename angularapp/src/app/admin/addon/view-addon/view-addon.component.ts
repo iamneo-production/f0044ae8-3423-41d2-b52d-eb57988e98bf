@@ -8,11 +8,13 @@ import { AddonService } from 'src/app/services/addon.service';
       styleUrls: ['./view-addon.component.css'],
 })
 export class ViewAddonComponent implements OnInit {
-      
+
       /**
        * @param _addonService 
        */
-      constructor(private _addonService: AddonService) {}
+      constructor(private _addonService: AddonService) { }
+
+      public query: any = '';
 
       // Storage For Addon Plans
       Plans!: AddonsModel[];
@@ -25,13 +27,13 @@ export class ViewAddonComponent implements OnInit {
        * @Action Gets all the Addons
        * Assign in Plans Variable
        */
-      GetAddons(){
+      GetAddons() {
             this._addonService.GetAddons().subscribe(
-                  (data)=>{  this.Plans = data; }
+                  (data) => { this.Plans = data; }
             );
       }
 
-      
+
       /**
        * @Action Get the Addon Of Specific Item
        * @param index 
@@ -39,9 +41,12 @@ export class ViewAddonComponent implements OnInit {
       SelectedAddon !: AddonsModel;
       GetAddon(index: number) {
             this._addonService.GetAddon(this.Plans[index].addonId)
-            .subscribe(data =>{
-                  this.SelectedAddon = data;
-            });
+                  .subscribe(data => {
+                        this.SelectedAddon = data;
+                  }, error => {
+                        console.log(error);
+                        this._addonService.toast.error({ detail: "An Error Occured!", duration: 4000 })
+                  });
       }
 
 
@@ -63,11 +68,11 @@ export class ViewAddonComponent implements OnInit {
             this.Plans.splice(index, 1);
       }
 
-      
+
       /**
        * Navigating to Add Addon
        */
-       AddAddon() {
+      AddAddon() {
             this._addonService.router.navigate(['/admin/addon/add-addon']);
       }
 }

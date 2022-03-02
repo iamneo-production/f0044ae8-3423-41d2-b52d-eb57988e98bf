@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-
+using System.Threading.Tasks;
 
 namespace WebApp.Controllers
 {
@@ -19,16 +19,16 @@ namespace WebApp.Controllers
 
             // GET: api/<PlanController>
             [HttpGet("getUsers")]
-            public IEnumerable<User> Get()
+            public async Task<IEnumerable<User>> Get()
             {
-                  return _context.Users.ToList();
+                  return await _context.Users.ToListAsync();
             }
 
             // GET api/<PlanController>/5
             [HttpGet("getUser/{email}")]
-            public IActionResult GetPlan(string email)
+            public async Task<IActionResult> GetPlan(string email)
             {
-                  var plan = _context.Users.Find(email);
+                  var plan = await _context.Users.FindAsync(email);
                   if (plan != null)
                   {
                         return Ok(new { StatusCode = 200, Plans = plan });
@@ -43,17 +43,18 @@ namespace WebApp.Controllers
             // POST api/<PlanController>
             //  [Route("addPlan")]
             [HttpPost("addUser")]
-            public IActionResult Post([FromBody] User plan)
+            public async Task<IActionResult> Post([FromBody] User plan)
             {
                   if (plan == null)
                   {
-                        return BadRequest(new{
+                        return BadRequest(new
+                        {
                               Message = "Invalid Data"
                         });
                   }
                   else
                   {
-                        _context.Users.Add(plan);
+                        await _context.Users.AddAsync(plan);
                         _context.SaveChanges();
                         return Ok(new
                         {
@@ -66,7 +67,7 @@ namespace WebApp.Controllers
             // PUT api/<PlanController>/5
             //  [Route("editPlan")]
             [HttpPut("editUser/{email}")]
-            public IActionResult Put(string email, [FromBody] User plan)
+            public async Task<IActionResult> Put(string email, [FromBody] User plan)
             {
                   if (plan == null)
                   {
@@ -74,7 +75,7 @@ namespace WebApp.Controllers
                   }
                   else
                   {
-                        var user = _context.Users.AsNoTracking().FirstOrDefault(e => e.Email.Equals(plan.Email));
+                        var user = await _context.Users.AsNoTracking().FirstOrDefaultAsync(e => e.Email.Equals(email));
                         if (user == null)
                         {
                               return NotFound(new
@@ -99,9 +100,9 @@ namespace WebApp.Controllers
             // DELETE api/<PlanController>/5
             //  [Route("deletePlan")]
             [HttpDelete("deleteUser/{email}")]
-            public IActionResult Delete(string email)
+            public async Task<IActionResult> Delete(string email)
             {
-                  var user = _context.Users.Find(email);
+                  var user = await _context.Users.FindAsync(email);
                   if (user == null)
                   {
                         return NotFound(new

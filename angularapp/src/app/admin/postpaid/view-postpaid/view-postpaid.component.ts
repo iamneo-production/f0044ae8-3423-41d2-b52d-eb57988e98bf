@@ -10,6 +10,8 @@ import { PlanModel } from '../../../shared/PlanModel';
 export class ViewPostpaidComponent implements OnInit {
     constructor(private _postPaidService: PostpaidService) { }
 
+    public query: any = '';
+
     Plans!: PlanModel[];
     public ngOnInit(): void {
         this.GetPlans();

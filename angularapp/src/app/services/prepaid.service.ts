@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PlanModel } from '../shared/PlanModel';
+import { NgToastService } from 'ng-angular-popup'
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrepaidService {
 
-  constructor(public http: HttpClient, public router: Router) { }
+  constructor(public http: HttpClient, public router: Router, private toast: NgToastService) { }
 
     BaseUrl = "https://8080-cfdbfaffcbafbeaabeccbbfbcafdeccaedae.examlyiopb.examly.io/";
 
@@ -55,7 +56,8 @@ export class PrepaidService {
      */
      AddPlan(body : PlanModel):Observable<PlanModel>{
         let Url = this.BaseUrl+"admin/addPlan";
-        const headers = { 'content-type': 'application/json'}  ;
+        const headers = { 'content-type': 'application/json'};
+        this.toast.success({detail: "Prepaid Plan Added!" , duration: 4000})
         return this.http.post<PlanModel>(Url,JSON.stringify(body),{'headers':headers})
     }
 
@@ -74,6 +76,7 @@ export class PrepaidService {
     EditId!: PlanModel;
     EditPlan(params: number, body: PlanModel):Observable<PlanModel>{
         let Url = this.BaseUrl+"admin/editPlan/";
+        this.toast.info({detail: "Prepaid Plan Updated!" , duration: 4000});
         return this.http.put<PlanModel>(Url + params, body);
     }
 
@@ -89,11 +92,11 @@ export class PrepaidService {
 
     OnDelete(PlanId: number):Observable<PlanModel> {
         let DeleteUrl = this.BaseUrl+"admin/deletePlan/";
+        this.toast.error({detail: "Prepaid Plan Deleted!" , duration: 4000});
         return this.http.delete<PlanModel>(DeleteUrl + PlanId)
     }
 
     // *----------------*--------------*-------------
-
 
     generateRandomNumber():number{
         var minm = 100000;

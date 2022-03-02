@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserModel } from 'src/app/shared/UserModel';
+import { NgToastService } from 'ng-angular-popup'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserControlService {
 
-  constructor(public http: HttpClient, public router: Router) { }
+  constructor(public http: HttpClient, public router: Router, private toast: NgToastService) { }
   BaseUrl = "https://8080-cfdbfaffcbafbeaabeccbbfbcafdeccaedae.examlyiopb.examly.io/admin/users/";
 
     // *----------------*--------------*-------------
@@ -45,8 +47,8 @@ export class UserControlService {
     EditId!: UserModel;
     EditUser(params: string, body: UserModel):Observable<any>{
         let Url = this.BaseUrl+"editUser/"+params;
-        console.log(body);
         const headers = { 'content-type': 'application/json' };
+        this.toast.info({detail: "User Updated!" , duration: 4000});
         return this.http.put<UserModel>(Url , JSON.stringify(body), { headers: headers });
     }
 
@@ -55,6 +57,7 @@ export class UserControlService {
     // Delete User Delete Request
     DeleteUser(Email: string):Observable<any> {
         let DeleteUrl = this.BaseUrl+"deleteUser/";
+        this.toast.error({detail: "User Deleted!" , duration: 4000});
         return this.http.delete<UserModel>(DeleteUrl + Email)
     }
 

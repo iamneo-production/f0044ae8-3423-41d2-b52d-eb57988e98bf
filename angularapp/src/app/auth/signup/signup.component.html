@@ -93,12 +93,13 @@
 
                         <!-- Login & Signup Button -->
                         <div class=" form-group">
-                              <button class="btn btn-success" id="submitButton" [disabled]="!(SignupForm.get('email')?.valid && 
+                              <button class="btn btn-success" id="submitButton">Signup</button>
+                              &nbsp;&nbsp;
+                              <!-- [disabled]="!(SignupForm.get('email')?.valid && 
                                                 SignupForm.get('username')?.valid &&
                                                 SignupForm.get('mobileNumber')?.valid &&
                                                 SignupForm.get('password')?.valid && 
-                                                SignupForm.get('confirmPass')?.valid && InvalidPass)">Signup</button>
-                              &nbsp;&nbsp;
+                                                SignupForm.get('confirmPass')?.valid && InvalidPass)" -->
 
                               <!-- Navigate to Login page -->
                               <a class="btn btn-success" id="signinLink" routerLink="/auth/login">Login</a>

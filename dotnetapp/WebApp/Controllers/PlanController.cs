@@ -3,6 +3,8 @@ using WebApp.Model;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApp.Controllers
@@ -19,21 +21,21 @@ namespace WebApp.Controllers
 
       // GET: api/<PlanController>
        [HttpGet("getPlans")]
-       public IEnumerable<Plan> Get()
+       public async Task<IEnumerable<Plan>> Get()
        {
-            return _context.Plans.ToList();
+            return await _context.Plans.ToListAsync();
        }
 
        // GET api/<PlanController>/5
        [HttpGet("getPlan/{id}")]
-       public IActionResult GetPlan(int id)
+       public async Task<IActionResult> GetPlan(int id)
        {
-            var plan = _context.Plans.Find(id);
+            var plan = await _context.Plans.FindAsync(id);
             if(plan != null){
                   return Ok(new {StatusCode=200 , Plans = plan});
             }
             return NotFound(new{
-                  StatusCode=400,
+                  StatusCode=404,
                   Message = "Plan Not Found"
             });
        }
@@ -41,13 +43,13 @@ namespace WebApp.Controllers
        // POST api/<PlanController>
       //  [Route("addPlan")]
        [HttpPost("addPlan")]
-       public IActionResult Post([FromBody] Plan plan)
+       public async Task<IActionResult> Post([FromBody] Plan plan)
        {
              if(plan == null){
                    return BadRequest();
              }
              else{
-                   _context.Plans.Add(plan);
+                   await _context.Plans.AddAsync(plan);
                    _context.SaveChanges();
                    return Ok(new{
                          StatusCode = 200,
@@ -59,7 +61,7 @@ namespace WebApp.Controllers
        // PUT api/<PlanController>/5
       //  [Route("editPlan")]
        [HttpPut("editPlan/{id}")]
-       public IActionResult Put(int id, [FromBody] Plan plan)
+       public async Task<IActionResult> Put(int id, [FromBody] Plan plan)
        {
 
              if (plan == null){
@@ -67,7 +69,7 @@ namespace WebApp.Controllers
             }
             else
             {
-                var user = _context.Plans.AsNoTracking().FirstOrDefault(e => e.PlanId == plan.PlanId);
+                var user = await _context.Plans.AsNoTracking().FirstOrDefaultAsync(e => e.PlanId == plan.PlanId);
                 if (user == null)
                 {
                     return NotFound(new
@@ -92,9 +94,9 @@ namespace WebApp.Controllers
        // DELETE api/<PlanController>/5
       //  [Route("deletePlan")]
        [HttpDelete("deletePlan/{id}")]
-       public IActionResult Delete(int id)
+       public async Task<IActionResult> Delete(int id)
        {
-             var user = _context.Plans.Find(id);
+             var user = await _context.Plans.FindAsync(id);
             if (user == null)
             {
                 return NotFound(new
