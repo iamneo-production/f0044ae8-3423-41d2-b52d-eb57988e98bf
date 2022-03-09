@@ -1,0 +1,41 @@
+<!-- User Navigation Bar -->
+<nav class="navbar navbar-expand-md navbar-light nav-glass-dark" style="min-width: 370px;">
+    <div class="container-fluid">
+
+          <!-- Brand -->
+          <a class="navbar-brand text-white">AirNet</a>
+
+          <!-- Toggle Navbar on Small Screen -->
+          <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+          </button>
+
+          <!-- Navigation Bar Items -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 float-end">
+                      <li>
+                            <a class="nav-link text-white" id="UserPlans" [routerLinkActiveOptions]={exact:true}
+                                  routerLinkActive="active-link" [routerLink]="['viewplans']">Popular Plans</a>
+                      </li>
+                      <li>
+                            <a class="nav-link text-white" id="UserAddons" routerLinkActive="active"
+                                  [routerLink]="['addons']">AddOns</a>
+                      </li>
+                      <li>
+                            <a class="nav-link text-white" id="notification" routerLinkActive="active"
+                                  [routerLink]="['history']">History</a>
+                      </li>
+                      <li>
+                            <a class="nav-link text-white" id="logout" routerLinkActive="active" 
+                                  routerLink="/">Logout</a>
+                      </li>
+                      <li>
+                            <a class="nav-link text-white" routerLinkActive="active"
+                                  routerLink="/admin/addon/view-addons">AdminAddOns</a>
+                      </li>
+                </ul>
+          </div>
+    </div>
+</nav>

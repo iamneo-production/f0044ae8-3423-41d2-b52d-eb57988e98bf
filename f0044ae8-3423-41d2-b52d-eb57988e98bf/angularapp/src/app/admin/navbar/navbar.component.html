@@ -1,0 +1,42 @@
+<!-- Admin page Navigation Bar-->
+
+<nav class="navbar navbar-expand-lg navbar-light nav-glass-dark" style="min-width: 370px;">
+    <div class="container-fluid">
+
+          <!-- Brand Title -->
+          <a class="navbar-brand text-white">AirNet</a>
+
+          <!-- Toggle Button On Short Screens -->
+          <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+          </button>
+
+          <!-- Navigation Bar Items -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 float-end">
+                      <li class="nav-item">
+                            <a class="nav-link text-white" id="adminPrepaid" routerLinkActive="active-link"
+                                  [routerLinkActiveOptions]="{exact:true}"
+                                  routerLink="/admin/prepaid/view-pre-paid">Prepaid Plans</a>
+                      </li>
+                      <li class="nav-item">
+                            <a class="nav-link text-white" id="adminPostpaid" routerLinkActive="active-link"
+                                  routerLink="/admin/postpaid/view-post-paid/">Postpaid Plans</a>
+                      </li>
+                      <li class="nav-item">
+                            <a class="nav-link text-white" id="adminAddOns" routerLinkActive="active-link"
+                                  routerLink="/admin/addon/view-addons">AddOns</a>
+                      </li>
+                      <li class="nav-item">
+                            <a class="nav-link text-white" routerLinkActive="active-link"
+                                  routerLink="/admin/users">Users</a>
+                      </li>
+                      <li class="nav-item">
+                            <a class="nav-link text-white" id="logout" routerLinkActive="active-link" routerLink="">Logout</a>
+                      </li>
+                </ul>
+          </div>
+    </div>
+</nav>

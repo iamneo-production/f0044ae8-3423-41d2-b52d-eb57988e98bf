@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+::ng-deep .container{
+      background-color: white;
+      border-radius: 10px;
+      margin: 5px auto auto auto;
+      padding-bottom: 15px;
+}
+
+::ng-deep .amount{
+      font-family: 'Lato';
+      font-weight: 400;
+      font-size: 32px;
+      color: dimgrey; 
+}
+::ng-deep .amountWhite{
+      font-family: 'Lato';
+      font-weight: 400;
+      font-size: 48px;
+      padding: 20px;
+}
+
+::ng-deep #img{
+      margin: 10px 8px 0px 5px;
+      padding : 0px;
+}
+
+::ng-deep .icon{
+      margin: 10px;
+      display: inline-block;
+}
+
+::ng-deep .font{
+      font-family: 'Lato', sans-serif;
+}
+
+::ng-deep .center{
+      float: none;
+      margin: 0 auto;
+      justify-content: center;
+}
+::ng-deep .inputx{
+      margin: 15px 0px;
+      padding: 10px;
+}
+::ng-deep .inputy{
+      margin: 5px 15px;
+}
+::ng-deep textarea{
+      margin: 15px;
+      padding: 10px;
+}
+
+::ng-deep .card{
+      width: 300px; 
+      min-width: 200px;
+    }
+::ng-deep .card-center{
+      margin: 10px 0px;
+      position: relative;
+      display: grid;
+      justify-content: center
+    }
+
+::ng-deep .alert{
+      font-style: italic; 
+      font-size: 12px;
+      padding: 0px;
+}
+::ng-deep .bg-dim{
+      border : 1px black;
+      background-color: gray;
+}
+
+::ng-deep .nav-glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur( 20px );
+      -webkit-backdrop-filter: blur( 20px );
+      border-radius: 5px;
+}
+::ng-deep .nav-glass-dark{
+      backdrop-filter: blur(18px) saturate(200%);
+      -webkit-backdrop-filter: blur(18px) saturate(200%);
+      background-color: rgba(17, 25, 40, 0.64);
+}
+
+::ng-deep .active{
+      background: 'white'
+  }

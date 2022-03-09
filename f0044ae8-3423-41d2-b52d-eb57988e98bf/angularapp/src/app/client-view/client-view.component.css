@@ -1,0 +1,24 @@
+::ng-deep .card{
+    width: 300px; 
+    min-width: 200px;
+  }
+::ng-deep .card-center{
+    margin: 10px 0px;
+    position: relative;
+    display: grid;
+    justify-content: center
+}
+::ng-deep .amountWhite{
+    font-family: 'Lato';
+    font-weight: 400;
+    font-size: 48px;
+    margin: 20px 0px;
+    padding: 20px;
+}
+::ng-deep .inputx{
+    margin: 10px 0px;
+    /* padding: 10px; */
+}
+::ng-deep .pad-none{
+    padding : 0px;
+}

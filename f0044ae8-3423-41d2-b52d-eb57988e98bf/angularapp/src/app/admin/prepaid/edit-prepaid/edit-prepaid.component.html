@@ -1,0 +1,98 @@
+<div class="container">
+  <form class="form-group" [formGroup]="EditPrePaidForm" (ngSubmit)="UpdatePlan()">
+    <div class="text-center">
+      <h1 class="display-5">Add PrePaid Plans</h1>
+    </div>
+    <hr>
+    <div class="row">
+
+      <!-- PrePaid Plan Name -->
+      <div class="col-6">
+        <div class="input-group  input-group-sm">
+          <div class="input-group-prepend">
+            <div class="input-group-text inputx btn-secondary">Plan Name</div>
+          </div>&nbsp;
+          <input type="text" class="inputx form-control" formControlName="_PlanName" placeholder="Enter Plan Name">
+
+        </div>
+        <span class="text-danger alert inputy"
+          *ngIf="!EditPrePaidForm.get('_PlanName')?.valid && EditPrePaidForm.get('_PlanName')?.touched;">Plan
+          Name Required!!!</span>
+      </div>
+
+
+      <!-- PrePaid Plan Price -->
+      <div class="col-6">
+        <div class="input-group  input-group-sm">
+          <div class="input-group-prepend">
+            <div class="input-group-text inputx btn-secondary">Plan Price</div>
+          </div>&nbsp;
+
+          <input type="text" class="inputx form-control" formControlName="_PlanPrice" placeholder="Enter Plan Price">
+
+        </div>
+        <span class="text-danger alert inputy"
+          *ngIf="!EditPrePaidForm.get('_PlanPrice')?.valid && EditPrePaidForm.get('_PlanPrice')?.touched;">Invalid
+          Price!!!</span>
+      </div>
+
+      <!-- PrePaid Plan Type -->
+      <div class="col-6">
+        <div class="input-group  input-group-sm">
+          <div class="input-group-prepend">
+            <div class="input-group-text inputx btn-secondary">Plan Type</div>
+          </div>&nbsp;
+
+          <input type="text" class="inputx form-control disabled" placeholder="PrePaid" disabled>
+        </div>
+      </div>
+
+      <!-- PrePaid Plan Validity -->
+      <div class="col-6">
+        <div class="input-group  input-group-sm">
+          <div class="input-group-prepend">
+            <div class="input-group-text inputx btn-secondary">Plan Validity</div>
+          </div>&nbsp;
+
+          <input type="text" class="inputx form-control" formControlName="_PlanValidity"
+            placeholder="Enter Plan Validity">
+
+        </div>
+        <span class="text-danger alert inputy"
+          *ngIf="!EditPrePaidForm.get('_PlanValidity')?.valid && EditPrePaidForm.get('_PlanValidity')?.touched;">Invalid
+          Validity!!!</span>
+      </div>
+
+      <!-- PrePaid Plan Offers -->
+      <div class="col-6">
+        <div class="input-group  input-group-sm">
+          <div class="input-group-prepend">
+            <div class="input-group-text inputx btn-secondary">Plan Offers</div>
+          </div>&nbsp;
+
+          <input type="text" class="inputx form-control" formControlName="_PlanOffers" placeholder="Enter Plan Offers">
+
+        </div>
+        <span class="text-danger alert inputy"
+          *ngIf="!EditPrePaidForm.get('_PlanOffers')?.valid && EditPrePaidForm.get('_PlanOffers')?.touched;">Plan
+          Offers Required!!!</span>
+      </div>
+
+
+      <!-- PrePaid Plan Description & Add Button -->
+      <div class="row">
+        <div class="col text-center">
+
+          <!-- Description -->
+          <textarea class="inputx form-control" placeholder="Enter Addon Description"
+            style="height: 150px; max-height: 250px;" formControlName="_PlanDetails"></textarea>
+
+          <!-- Add Button -->
+          <button type="submit" class="btn btn-primary"
+            [disabled]="!(EditPrePaidForm.get('_PlanPrice')?.valid && EditPrePaidForm.get('_PlanName')?.valid && EditPrePaidForm.get('_PlanValidity')?.valid && EditPrePaidForm.get('_PlanOffers')?.valid)"
+            style="margin: 20px;">Add Plan</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

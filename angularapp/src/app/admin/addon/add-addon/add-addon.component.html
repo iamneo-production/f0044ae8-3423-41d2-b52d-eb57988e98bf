@@ -1,0 +1,72 @@
+<div class="container">
+  <form class="form-group" [formGroup]="AddAddonForm" (ngSubmit)="AddAddons()">
+    <div class="text-center">
+      <h1 class="display-5">Add Addon</h1>
+    </div>
+    <hr>
+    <div class="row">
+
+      <!-- Add Addons Form -->
+
+      <!-- Addon Name -->
+      <div class="col-6">
+        <div class="input-group  input-group-sm">
+          <div class="input-group-prepend">
+            <div class="input-group-text inputx btn-secondary">Addon Name</div>
+          </div>&nbsp;
+          <input type="text" class="inputx form-control" formControlName="_AddonName" placeholder="Enter Addon Name">
+
+        </div>
+        <span class="text-danger alert inputy"
+          *ngIf="!AddAddonForm.get('_AddonName')?.valid && AddAddonForm.get('_AddonName')?.touched;">Addon
+          Name Required!!!</span>
+      </div>
+
+
+      <!-- Addon Price -->
+      <div class="col-6">
+        <div class="input-group  input-group-sm ">
+          <div class="input-group-prepend">
+            <div class="input-group-text inputx btn-secondary">Addon Price</div>
+          </div>&nbsp;
+          <input type="text" class="inputx form-control" formControlName="_AddonPrice" placeholder="Enter Addon Price">
+
+        </div>
+        <span class="text-danger alert inputy"
+          *ngIf="!AddAddonForm.get('_AddonPrice')?.valid && AddAddonForm.get('_AddonPrice')?.touched;">Invalid
+          Price!!!</span>
+      </div>
+
+
+      <!-- Addon Validity -->
+      <div class="col-6">
+        <div class="input-group  input-group-sm">
+          <div class="input-group-prepend">
+            <div class="input-group-text inputx btn-secondary">Addon Validity</div>
+          </div>&nbsp;
+          <input type="text" class="inputx form-control" formControlName="_AddonValidity"
+            placeholder="Enter Addon Validity">
+        </div>
+        <span class="text-danger alert inputy"
+          *ngIf="!AddAddonForm.get('_AddonValidity')?.valid && AddAddonForm.get('_AddonValidity')?.touched;">Invalid
+          Validity!!!</span>
+      </div>
+
+
+      <!-- Description -->
+      <div class="row">
+        <div class="col text-center">
+          <!-- Addon Description -->
+          <textarea class="inputx form-control" placeholder="Enter Addon Description"
+            style="height: 150px; max-height: 250px;" formControlName="_AddonDetails"></textarea>
+
+
+          <!-- Add Addon Button -->
+          <button type="submit" class="btn btn-primary"
+            [disabled]="!(AddAddonForm.get('_AddonPrice')?.valid && AddAddonForm.get('_AddonName')?.valid && AddAddonForm.get('_AddonValidity')?.valid)"
+            style="margin: 20px;">Add Addon</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

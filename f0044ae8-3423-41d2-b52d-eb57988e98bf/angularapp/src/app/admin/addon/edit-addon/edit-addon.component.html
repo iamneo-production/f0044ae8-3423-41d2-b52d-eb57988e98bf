@@ -1,0 +1,78 @@
+<div class="container">
+    <form class="form-group" [formGroup]="EditAddonForm" (ngSubmit)="UpdateAddons()">
+          <div class="text-center">
+                <h1 class="display-5">Edit Addon</h1>
+          </div>
+          <hr>
+          <div class="row">
+
+                <!-- Edit Addons Form -->
+                
+                <!-- Addon Name -->
+                <div class="col-6">
+                      <div class="input-group  input-group-sm">
+                            <div class="input-group-prepend">
+                                  <div class="input-group-text inputx btn-secondary">Addon Name</div>
+                            </div>&nbsp;
+                            <input type="text" class="inputx form-control" formControlName="_AddonName"
+                                  placeholder="Enter Addon Name">
+                      </div>
+
+                      <!-- Displays Invalid Message -->
+                      <span class="text-danger alert inputy"
+                            *ngIf="!EditAddonForm.get('_AddonName')?.valid && EditAddonForm.get('_AddonName')?.touched;">Addon
+                            Name Required!!!</span>
+                </div>
+
+
+                <!-- Addon Price -->
+                <div class="col-6">
+                      <div class="input-group  input-group-sm">
+                            <div class="input-group-prepend">
+                                  <div class="input-group-text inputx btn-secondary">Addon Price</div>
+                            </div>&nbsp;
+                            <input type="text" class="inputx form-control" formControlName="_AddonPrice"
+                                  placeholder="Enter Addon Price">
+                      </div>
+
+                      <!-- Displays Invalid Message -->
+                      <span class="text-danger alert inputy"
+                            *ngIf="!EditAddonForm.get('_AddonPrice')?.valid && EditAddonForm.get('_AddonPrice')?.touched;">Invalid
+                            Price!!!</span>
+                </div>
+
+
+                <!-- Addon Validity -->
+                <div class="col-6">
+                      <div class="input-group  input-group-sm">
+                            <div class="input-group-prepend">
+                                  <div class="input-group-text inputx btn-secondary">Addon Validity</div>
+                            </div>&nbsp;
+                            <input type="text" class="inputx form-control" formControlName="_AddonValidity"
+                                  placeholder="Enter Addon Validity">
+                      </div>
+
+                      <!-- Displays Invalid Message -->
+                      <span class="text-danger alert inputy"
+                            *ngIf="!EditAddonForm.get('_AddonValidity')?.valid && EditAddonForm.get('_AddonValidity')?.touched;">Invalid
+                            Validity!!!</span>
+
+                </div>
+          </div>
+
+
+          <!-- Description & Edit button-->
+          <div class="row">
+                <div class="col text-center">
+                      <!-- Description-->
+                      <textarea class="inputx form-control" placeholder="Enter Addon Description"
+                            style="height: 150px; max-height: 250px;" formControlName="_AddonDetails"></textarea>
+
+                      <!-- Update Button -->
+                      <button type="submit" class="btn btn-primary"
+                            [disabled]="!(EditAddonForm.get('_AddonPrice')?.valid && EditAddonForm.get('_AddonName')?.valid && EditAddonForm.get('_AddonValidity')?.valid)"
+                            style="margin: 20px;">Update Addon</button>
+                </div>
+          </div>
+    </form>
+</div>

@@ -1,0 +1,103 @@
+<div class="container">
+    <form class="form-group" [formGroup]="AddPostPaidForm" (ngSubmit)="AddAddons()">
+
+          <!-- Form Header -->
+          <div class="text-center">
+                <h1 class="display-5">Add Postpaid Plan</h1>
+          </div>
+          <hr>
+          <div class="row">
+
+                <!-- PostPaid Plan Name -->
+                <div class="col-6">
+                      <div class="input-group  input-group-sm">
+                            <div class="input-group-prepend">
+                                  <div class="input-group-text inputx btn-secondary">Plan Name</div>
+                            </div>&nbsp;
+                            <input type="text" class="inputx form-control" formControlName="_PlanName"
+                                  placeholder="Enter Plan Name">
+
+                      </div>
+                      <span class="text-danger alert inputy"
+                            *ngIf="!AddPostPaidForm.get('_PlanName')?.valid && AddPostPaidForm.get('_PlanName')?.touched;">Plan
+                            Name Required!!!</span>
+                </div>
+
+
+                <!-- PostPaid Plan Price -->
+                <div class="col-6">
+                      <div class="input-group  input-group-sm">
+                            <div class="input-group-prepend">
+                                  <div class="input-group-text inputx btn-secondary">Plan Price</div>
+                            </div>&nbsp;
+
+                            <input type="text" class="inputx form-control" formControlName="_PlanPrice"
+                                  placeholder="Enter Plan Price">
+
+                      </div>
+                      <span class="text-danger alert inputy"
+                            *ngIf="!AddPostPaidForm.get('_PlanPrice')?.valid && AddPostPaidForm.get('_PlanPrice')?.touched;">Invalid
+                            Price!!!</span>
+                </div>
+
+                <!-- PostPaid Plan Type -->
+                <div class="col-6">
+                      <div class="input-group  input-group-sm">
+                            <div class="input-group-prepend">
+                                  <div class="input-group-text inputx btn-secondary">Plan Type</div>
+                            </div>&nbsp;
+
+                            <input type="text" class="inputx form-control disabled" placeholder="PostPaid" disabled>
+                      </div>
+                </div>
+
+                <!-- PostPaid Plan Validity -->
+                <div class="col-6">
+                      <div class="input-group  input-group-sm">
+                            <div class="input-group-prepend">
+                                  <div class="input-group-text inputx btn-secondary">Plan Validity</div>
+                            </div>&nbsp;
+
+                            <input type="text" class="inputx form-control" formControlName="_PlanValidity"
+                                  placeholder="Enter Plan Validity">
+
+                      </div>
+                      <span class="text-danger alert inputy"
+                            *ngIf="!AddPostPaidForm.get('_PlanValidity')?.valid && AddPostPaidForm.get('_PlanValidity')?.touched;">Invalid
+                            Validity!!!</span>
+                </div>
+
+                <!-- PostPaid Plan Offers -->
+                <div class="col-6">
+                      <div class="input-group  input-group-sm">
+                            <div class="input-group-prepend">
+                                  <div class="input-group-text inputx btn-secondary">Plan Offers</div>
+                            </div>&nbsp;
+
+                            <input type="text" class="inputx form-control" formControlName="_PlanOffers"
+                                  placeholder="Enter Plan Offers">
+
+                      </div>
+                      <span class="text-danger alert inputy"
+                            *ngIf="!AddPostPaidForm.get('_PlanOffers')?.valid && AddPostPaidForm.get('_PlanOffers')?.touched;">Plan
+                            Offers Required!!!</span>
+                </div>
+
+
+                <!-- PostPaid Plan Description & Add Button -->
+                <div class="row">
+                      <div class="col text-center">
+
+                            <!-- Description -->
+                            <textarea class="inputx form-control" placeholder="Enter Addon Description"
+                                  style="height: 150px; max-height: 250px;" formControlName="_PlanDetails"></textarea>
+
+                            <!-- Add Button -->
+                            <button type="submit" class="btn btn-primary"
+                                  [disabled]="!(AddPostPaidForm.get('_PlanPrice')?.valid && AddPostPaidForm.get('_PlanName')?.valid && AddPostPaidForm.get('_PlanValidity')?.valid && AddPostPaidForm.get('_PlanOffers')?.valid)"
+                                  style="margin: 20px;">Add Plan</button>
+                      </div>
+                </div>
+          </div>
+    </form>
+</div>

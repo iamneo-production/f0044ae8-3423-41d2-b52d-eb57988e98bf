@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+      background: #c18eff;
+      background: linear-gradient(to bottom, #aa64ff, #66c7ff);
+      background-size: 100% 100%;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+}
+
+/* 
+Microsoft.EntityFrameworkCore.SqlServer.Design
+ */
